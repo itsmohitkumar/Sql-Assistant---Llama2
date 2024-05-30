@@ -1,6 +1,6 @@
 # SQL Assistant 🦙
 
-Welcome to SQL Assistant, a Streamlit application that assists you in querying pizza order data from a MySQL database.
+Welcome to SQL Assistant, a Streamlit application that assists you in querying data from a MySQL database.
 
 ## Overview
 
@@ -49,9 +49,9 @@ Ensure you have the following dependencies installed:
 - LangChain Community
 
 ## Usage
-1. Input your MySQL database connection details in `sql_helper.py`.
-2. Run `main.py` to start the Streamlit application.
-3. Interact with the SQL Assistant by asking questions about the pizza order data.
+1. Input your MySQL database connection details.
+2. Run `streamlit run app.py` to start the Streamlit application.
+3. Interact with the SQL Assistant by asking questions about the data.
 
 ## Contributing
 Contributions are welcome! Please feel free to submit issues or pull requests.
