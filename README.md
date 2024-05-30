@@ -19,7 +19,7 @@ SQL Assistant is a conversational interface that allows users to interactively q
 #1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your_username/sql-assistant.git
+   git clone https://github.com/itsmohitkumar/Sql-Assistant---Llama2.git
    cd sql-assistant
    ```
 
