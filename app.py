@@ -179,4 +179,4 @@ if connection and connection.is_connected():
 
 if connection and connection.is_connected():
     connection.close()
-    st.write("Connection is closed!")
+    st.write("Connection is opened!")
