@@ -1,5 +1,6 @@
 mysql-connector-python
 streamlit
+streamlit_chat
 pypdf
 langchain
 torch
@@ -7,4 +8,5 @@ accelerate
 bitsandbytes
 transformers
 sentence_transformers
+ctransformers
 faiss_cpu
