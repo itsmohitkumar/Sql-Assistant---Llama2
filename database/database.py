@@ -10,7 +10,7 @@ username = "Chatbot_mouthtask"
 password = "2ac46addfbe24acab97420c6aff9f01e57d63821"
 
 # CSV file path
-csv_file_path = 'data/pizza_sales.csv'  # Update with the actual path
+csv_file_path = 'database/data/World-happiness-reportcsv.csv'
 
 try:
     # Establish the connection
@@ -33,21 +33,20 @@ try:
         df = pd.read_csv(csv_file_path)
         
         # Create table based on CSV columns
-        table_name = 'pizzas'
+        table_name = 'your_table_name'
         create_table_query = f"""
         CREATE TABLE IF NOT EXISTS {table_name} (
-            pizza_id FLOAT,
-            order_id FLOAT,
-            pizza_name_id VARCHAR(255),
-            quantity FLOAT,
-            order_date VARCHAR(255),
-            order_time VARCHAR(255),
-            unit_price FLOAT,
-            total_price FLOAT,
-            pizza_size VARCHAR(5),
-            pizza_category VARCHAR(50),
-            pizza_ingredients TEXT,
-            pizza_name VARCHAR(255)
+            country_name VARCHAR(255),
+            year INT,
+            life_ladder FLOAT,
+            log_gdp_per_capita FLOAT,
+            social_support FLOAT,
+            healthy_life_expectancy FLOAT,
+            freedom_to_make_life_choices FLOAT,
+            generosity FLOAT,
+            perceptions_of_corruption FLOAT,
+            positive_affect FLOAT,
+            negative_affect FLOAT
         )
         """
         cursor.execute(create_table_query)
@@ -56,9 +55,10 @@ try:
         # Insert DataFrame into MySQL table using executemany for batch insertion
         insert_query = f"""
         INSERT INTO {table_name} (
-            pizza_id, order_id, pizza_name_id, quantity, order_date, order_time, 
-            unit_price, total_price, pizza_size, pizza_category, pizza_ingredients, pizza_name
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            country_name, year, life_ladder, log_gdp_per_capita, social_support,
+            healthy_life_expectancy, freedom_to_make_life_choices, generosity,
+            perceptions_of_corruption, positive_affect, negative_affect
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         data = [tuple(row) for row in df.values]
         cursor.executemany(insert_query, data)
